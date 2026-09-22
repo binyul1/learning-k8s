@@ -1,5 +1,5 @@
 flask:
-  image: manister7/flask-mysql-backend:3
+  image: binyul11/github-actions-learn-demo2:3
   replicas: 2
   service:
     type: NodePort
