@@ -1,0 +1,15 @@
+flask:
+  image: manister7/flask-mysql-backend:3
+  replicas: 2
+  service:
+    type: NodePort
+    port: 5000
+    nodePort: 30080
+
+mysql:
+  image: mysql:8.0
+  database: mydb
+  user: flaskuser
+  password: flaskpass
+  rootPassword: rootpass
+  storage: 1Gi

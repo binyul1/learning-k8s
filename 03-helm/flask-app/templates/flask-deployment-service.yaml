@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-flask
+spec:
+  replicas: {{ .Values.flask.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-flask
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-flask
+    spec:
+      containers:
+        - name: flask
+          image: {{ .Values.flask.image }}
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: {{ .Release.Name }}-mysql
+            - name: DB_USER
+              value: {{ .Values.mysql.user }}
+            - name: DB_PASSWORD
+              value: {{ .Values.mysql.password }}
+            - name: DB_NAME
+              value: {{ .Values.mysql.database }}
