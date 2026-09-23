@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap 
+metadata: 
+  name: db-init-sql
+data:
+  init.sql: |
+    create database if not exists mydb;
+    use mydb;
+    create table if not exists users(
+    id INT auto_increment PRIMARY KEY,
+    name VARCHAR(100) NOT NULL);
+    INSERT into users (name) values ('John Doe'), ('Jane Smith'), ('Alice Johnson');

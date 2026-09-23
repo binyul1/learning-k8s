@@ -1,5 +1,5 @@
 flask:
-  image: binyul11/github-actions-learn-demo2:3
+  image: binyul11/github-actions-learn-demo2
   replicas: 2
   service:
     type: NodePort
